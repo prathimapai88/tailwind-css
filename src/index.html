@@ -3,22 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./output.css" rel="stylesheet" />
+    <link href="../dist/output.css" rel="stylesheet" />
     <script defer src="./assets/fontawesome/js/solid.min.js"></script>
     <script defer src="./assets/fontawesome/js/fontawesome.min.js"></script>
+    
   </head>
-  <body>
-    <main>
+  <body class="dark">
+    <main class="bg-zinc-200 dark:bg-zinc-900">
       <header class="text-zinc-200">
         <!-- Header section-->
-        <nav class="sticky top-0 flex row bg-gradient-to-r from-rose-500 to-pink-500 p-2">
+
+        <div  id="dark-mode-toggle" class="fixed top-48 right-0 inline-block w-12  cursor-pointer rounded-l-lg bg-zinc-900 text-zinc-200 dark:text-zinc-900 dark:bg-zinc-200 p-2 text-2xl">
+            <i class="fa-solid fa-sun dark:hidden"></i>
+            <i class="fa-solid fa-moon  hidden dark:inline"></i>
+        </div>
+
+
+        <nav class="sticky top-0 flex row bg-gradient-to-r from-rose-500 to-pink-500">
           <div class="flex items-center gap-2">
             <img src="./assets/images/logo-inverted.png" width="50" />
             <div class="text-2xl font-bold">
               tw: <span class="text-sky-900">mf</span>
             </div>
           </div>
-          <div class="flex flex-1 items-center justify-end">
+
+          <div id="mobile-menu-button" class="block my-auto ml-auto cursor-pointer md:hidden">
+               <div class="bg-zinc-200 rounded-full w-8 h-1"></div>
+               <div class="bg-zinc-200 rounded-full w-8 h-1 mt-1"></div>
+               <div class="bg-zinc-200 rounded-full w-8 h-1 mt-1"></div>
+               </div>
+          </div>
+          <div class="md:flex hidden flex-1 items-center justify-end">
             <div class="menu-items">
               <span>Home</span>
             </div>
@@ -27,8 +42,12 @@
               <span>Line up</span>
             </div>
 
-            <div class="menu-items">
+            <div class="menu-items group">
               <span>Tickets</span>
+              <div class="absolute hidden top-full  bg-pink-500 right-0 whitespace-nowrap rounded-b-md group-hover:block">
+                 <div class="cursor-pointer  p-4 hover:bg-white/5 hover:text-zinc-200 font-bold transition-colors ease-in-out"><span>Single Day Ticket</span></div>
+                 <div class="cursor-pointer  p-4 hover:bg-white/5 hover:text-zinc-200  font-bold transition-colors ease-in-out"><span>7 Days Ticket</span></div>
+              </div>
             </div>
 
             <div class="menu-items">
@@ -38,6 +57,21 @@
           </div>
         </nav>
       </header>
+      <div class="text-zinc-900 dark:text-zinc-200">
+        Rest of the content 
+      </div>
     </main>
+    <script>
+      
+      const darkModeToggle = document.getElementById("dark-mode-toggle");
+        darkModeToggle.addEventListener("click", () => {
+          if (document.body.classList.contains("dark")) {
+            document.body.classList.remove("dark");
+          } else {
+            document.body.classList.add("dark");
+          }
+        });
+
+    </script>
   </body>
 </html>
