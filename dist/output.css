@@ -736,6 +736,10 @@ html{
   height: 2rem;
 }
 
+.h-10{
+  height: 2.5rem;
+}
+
 .min-h-\[400px\]{
   min-height: 400px;
 }
@@ -903,6 +907,10 @@ html{
 
 .p-4{
   padding: 1rem;
+}
+
+.p-3{
+  padding: 0.75rem;
 }
 
 .py-2{
